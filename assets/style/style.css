@@ -1,0 +1,17 @@
+.title {
+  font-weight: bolder;
+  text-align: center;
+}
+
+.gallery {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  border: 1px solid red;
+  margin: 1%;
+  padding: 1%;
+  width: 27%;
+}
