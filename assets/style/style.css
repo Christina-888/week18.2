@@ -15,3 +15,13 @@
   padding: 1%;
   width: 27%;
 }
+
+.star {
+  font-size: 30px; 
+  cursor: pointer; 
+  color: grey;
+}
+
+.star.filled {
+  color: yellow;
+}

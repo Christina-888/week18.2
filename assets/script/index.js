@@ -116,10 +116,44 @@ const showSuperheroes = () => {
     <p>РОД ДЕЯТЕЛЬНОСТИ: ${superhero.occupation}</p>
     <p>ДРУЗЬЯ: ${superhero.friends}</p>
     <p>СУПЕРСИЛЫ: ${superhero.superpowers}</p>
-    <img src="${superhero.url}">`;
+    <img src="${superhero.url}"> <br><br>
+    <div class='stars' data-rating='0'>
+    <span class='star' value='1'>★</span>
+    <span class='star' value='2'>★</span>
+    <span class='star' value='3'>★</span>
+    <span class='star' value='4'>★</span>
+    <span class='star' value='5'>★</span>
+  </div>`;
+
+  //Выбираем звёздочки для конкретной карточки:
+    const stars = card.querySelectorAll('.star');
+
+  //Обработчик событий для звёздочек:
+    stars.forEach((star) => {
+      star.addEventListener('click', () => {
+        const count = parseInt(star.getAttribute('value')); 
+        tapStars(count, stars);
+      });
+    });
 
     div.appendChild(card);
   });
+  };
+
+  //Нажатие:
+  const tapStars = (n, stars, superheroName) => {
+    remove(stars);
+    for (let i = 0; i < n; i++) {
+      stars[i].classList.add('filled');
+    };
+    localStorage.setItem(superheroName, n);
+  };
+  
+  //Удаление нажатия: 
+  const remove = (stars) => {
+    stars.forEach((star) => {
+      star.classList.remove('filled');
+    });
   };
 
   showSuperheroes();
